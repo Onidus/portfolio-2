@@ -1,0 +1,150 @@
+/*---------------------
+    VARIABLES
+---------------------*/
+/*---------------------
+    MIXINS
+---------------------*/
+/*---------------------
+    GENERAL
+---------------------*/
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "M PLUS 1p", sans-serif;
+}
+
+/*---------------------
+    HEADER
+---------------------*/
+header {
+  overflow: hidden;
+  height: 60px;
+  width: 100vw;
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
+  z-index: 2;
+}
+header .header-bar {
+  background-color: #ffe012;
+  height: 60px;
+}
+header .main-header {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+header #logo {
+  max-width: 340px;
+  margin-top: -9px;
+  margin-left: -10px;
+}
+
+/*---------------------
+    HERO
+---------------------*/
+#hero {
+  background-color: #04222b;
+  min-height: 100vh;
+  padding: 64px 16px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#hero h1 {
+  font-weight: 400;
+  color: #03b2e7;
+  font-size: 4em;
+}
+#hero .subtitle {
+  font-weight: 100;
+  color: #ffe012;
+  font-size: 2em;
+}
+
+/*---------------------
+    CONTENT
+---------------------*/
+.container {
+  max-width: 1120px;
+  width: 100%;
+  margin: auto;
+}
+
+#web-apps {
+  background-color: #46432f;
+  min-height: 70vh;
+  padding: 64px 16px;
+  display: flex;
+}
+#web-apps h3 {
+  background-color: #ffe012;
+  color: #03b2e7;
+  padding: 4px 8px;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 32px;
+}
+#web-apps .item img {
+  border: 3px solid #ffe012;
+  box-shadow: 0 4px 5px #04222b;
+  padding: 10px;
+  background-color: #fff;
+}
+#web-apps .item p {
+  background-color: #ffe012;
+  color: #03b2e7;
+}
+
+#web-sites {
+  background-color: #383626;
+  min-height: 70vh;
+  padding: 64px 16px;
+  display: flex;
+}
+#web-sites h3 {
+  background-color: #03b2e7;
+  color: #ffe012;
+  padding: 4px 8px;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 32px;
+}
+#web-sites .item img {
+  border: 3px solid #03b2e7;
+  box-shadow: 0 4px 5px #04222b;
+  padding: 10px;
+  background-color: #fff;
+}
+#web-sites .item p {
+  background-color: #03b2e7;
+  color: #ffe012;
+}
+
+.item-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 64px;
+}
+
+.item a {
+  position: relative;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none;
+  line-height: 0;
+}
+.item a p {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 4px 8px;
+  line-height: initial;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,176 @@
+/*---------------------
+    VARIABLES
+---------------------*/
+
+$font-stack: 'M PLUS 1p', sans-serif;
+$color-primary: #ffe012;
+$color-secondary: #03b2e7;
+$color-hero: #04222b;
+$color-bg: #46432f;
+$color-bg-2: #383626;
+
+/*---------------------
+    MIXINS
+---------------------*/
+
+@mixin section($theme: $color-bg, $height: 100vh) {
+    background-color: $theme;
+    min-height: $height;
+    padding: 64px 16px;
+    display: flex;
+}
+
+@mixin content-title($color1: $color-primary, $color2: $color-secondary){
+    background-color: $color1;
+    color: $color2;
+    padding: 4px 8px;
+    display: inline-block;
+    font-size: 1.5em;
+    margin-bottom: 32px;
+}
+
+@mixin content-img($color: $color-primary) {
+    border: 3px solid $color;
+    box-shadow: 0 4px 5px $color-hero;
+    padding: 10px;
+    background-color: #fff;
+}
+
+@mixin description-color($text: $color-secondary, $background: $color-primary) {
+    background-color: $background;
+    color: $text;
+}
+
+/*---------------------
+    GENERAL
+---------------------*/
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font-stack;
+}
+
+/*---------------------
+    HEADER
+---------------------*/
+
+header {
+    overflow: hidden;
+    height: 60px;
+    width: 100vw;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
+    z-index: 2;
+
+    .header-bar {
+        background-color: $color-primary;
+        height: 60px;
+    }
+
+    .main-header {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+    }
+
+    #logo {
+        max-width: 340px;
+        margin-top: -9px;
+        margin-left: -10px;
+    }
+}
+
+/*---------------------
+    HERO
+---------------------*/
+
+#hero {
+    @include section($theme: $color-hero);
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        font-weight: 400;
+        color: $color-secondary;
+        font-size: 4em;
+    }
+
+    .subtitle {
+        font-weight: 100;
+        color: $color-primary;
+        font-size: 2em;
+    }
+}
+
+/*---------------------
+    CONTENT
+---------------------*/
+
+.container {
+    max-width: 1120px;
+    width: 100%;
+    margin: auto;
+}
+
+#web-apps {
+    @include section($height: 70vh);
+
+    h3 {
+        @include content-title;
+    }
+
+    .item img {
+        @include content-img;
+    }
+
+    .item p{
+        @include description-color;
+    }
+}
+
+#web-sites {
+    @include section($theme: $color-bg-2, $height: 70vh);
+
+    h3{
+        @include content-title($color1: $color-secondary, $color2: $color-primary);
+    }
+
+    .item img {
+        @include content-img($color: $color-secondary);
+    }
+
+    .item p{
+        @include description-color($text: $color-primary, $background: $color-secondary);
+    }
+}
+
+.item-columns{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 64px;
+}
+
+.item {
+    a {
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+        text-decoration: none;
+        line-height: 0;
+
+        p {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 4px 8px;
+            line-height: initial;
+        }
+    }
+}
