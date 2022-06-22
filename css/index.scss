@@ -2,7 +2,8 @@
     VARIABLES
 ---------------------*/
 
-$font-stack: 'M PLUS 1p', sans-serif;
+$font-stack: 'Noto Sans JP', sans-serif;
+$font-featured: 'M PLUS 1p', sans-serif;
 $color-primary: #ffe012;
 $color-secondary: #03b2e7;
 $color-hero: #04222b;
@@ -52,6 +53,11 @@ $color-bg-2: #383626;
 
 html {
     font-family: $font-stack;
+    scroll-behavior: smooth;
+}
+
+h3 {
+    font-family: $font-featured;
 }
 
 /*---------------------
@@ -61,10 +67,11 @@ html {
 header {
     overflow: hidden;
     height: 60px;
-    width: 100vw;
+    max-width: 100vw;
+    width: 100%;
     position: fixed;
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
+    grid-template-columns: 32px minmax(auto, 320px) 1fr;
     z-index: 2;
 
     .header-bar {
@@ -74,7 +81,26 @@ header {
 
     .main-header {
         display: grid;
-        grid-template-columns: 320px 1fr;
+        justify-content: end;
+        align-items: center;
+
+        #navbar {
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                font-size: 1.1em;
+                color: $color-hero;
+                font-weight: 600;
+                padding: 0 16px;
+                line-height: 60px;
+                display: block;
+            }
+
+            a:hover {
+                background-color: $color-secondary;
+            }
+        }
     }
 
     #logo {
@@ -88,7 +114,7 @@ header {
     HERO
 ---------------------*/
 
-#hero {
+#welcome-section {
     @include section($theme: $color-hero);
     text-align: center;
     justify-content: center;
@@ -124,12 +150,20 @@ header {
         @include content-title;
     }
 
-    .item img {
+    .project-tile img {
         @include content-img;
     }
 
-    .item p{
+    .project-tile .item-name{
         @include description-color;
+    }
+
+    .project-tile .tags{
+        color: $color-secondary;
+
+        span {
+            color: $color-primary;
+        }
     }
 }
 
@@ -140,12 +174,20 @@ header {
         @include content-title($color1: $color-secondary, $color2: $color-primary);
     }
 
-    .item img {
+    .project-tile img {
         @include content-img($color: $color-secondary);
     }
 
-    .item p{
+    .project-tile .item-name{
         @include description-color($text: $color-primary, $background: $color-secondary);
+    }
+
+    .project-tile .tags{
+        color: $color-primary;
+
+        span {
+            color: $color-secondary;
+        }
     }
 }
 
@@ -156,13 +198,19 @@ header {
     row-gap: 64px;
 }
 
-.item {
+.project-tile {
+    max-width: 30%;
+
     a {
         position: relative;
         display: inline-block;
         width: fit-content;
         text-decoration: none;
         line-height: 0;
+
+        img {
+            max-width: 100%;
+        }
 
         p {
             display: inline-block;
@@ -172,5 +220,13 @@ header {
             padding: 4px 8px;
             line-height: initial;
         }
+    }
+
+    .tags {
+        margin-top: 16px;
+        font-weight: 600;
+        padding: 8px;
+        text-align: center;
+        text-shadow: 0 2px 2px $color-hero;
     }
 }

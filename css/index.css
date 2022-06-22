@@ -13,6 +13,11 @@
 }
 
 html {
+  font-family: "Noto Sans JP", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h3 {
   font-family: "M PLUS 1p", sans-serif;
 }
 
@@ -22,10 +27,11 @@ html {
 header {
   overflow: hidden;
   height: 60px;
-  width: 100vw;
+  max-width: 100vw;
+  width: 100%;
   position: fixed;
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
+  grid-template-columns: 32px minmax(auto, 320px) 1fr;
   z-index: 2;
 }
 header .header-bar {
@@ -34,7 +40,23 @@ header .header-bar {
 }
 header .main-header {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  justify-content: end;
+  align-items: center;
+}
+header .main-header #navbar {
+  list-style: none;
+}
+header .main-header #navbar a {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: #04222b;
+  font-weight: 600;
+  padding: 0 16px;
+  line-height: 60px;
+  display: block;
+}
+header .main-header #navbar a:hover {
+  background-color: #03b2e7;
 }
 header #logo {
   max-width: 340px;
@@ -45,7 +67,7 @@ header #logo {
 /*---------------------
     HERO
 ---------------------*/
-#hero {
+#welcome-section {
   background-color: #04222b;
   min-height: 100vh;
   padding: 64px 16px;
@@ -54,12 +76,12 @@ header #logo {
   justify-content: center;
   flex-direction: column;
 }
-#hero h1 {
+#welcome-section h1 {
   font-weight: 400;
   color: #03b2e7;
   font-size: 4em;
 }
-#hero .subtitle {
+#welcome-section .subtitle {
   font-weight: 100;
   color: #ffe012;
   font-size: 2em;
@@ -88,15 +110,21 @@ header #logo {
   font-size: 1.5em;
   margin-bottom: 32px;
 }
-#web-apps .item img {
+#web-apps .project-tile img {
   border: 3px solid #ffe012;
   box-shadow: 0 4px 5px #04222b;
   padding: 10px;
   background-color: #fff;
 }
-#web-apps .item p {
+#web-apps .project-tile .item-name {
   background-color: #ffe012;
   color: #03b2e7;
+}
+#web-apps .project-tile .tags {
+  color: #03b2e7;
+}
+#web-apps .project-tile .tags span {
+  color: #ffe012;
 }
 
 #web-sites {
@@ -113,15 +141,21 @@ header #logo {
   font-size: 1.5em;
   margin-bottom: 32px;
 }
-#web-sites .item img {
+#web-sites .project-tile img {
   border: 3px solid #03b2e7;
   box-shadow: 0 4px 5px #04222b;
   padding: 10px;
   background-color: #fff;
 }
-#web-sites .item p {
+#web-sites .project-tile .item-name {
   background-color: #03b2e7;
   color: #ffe012;
+}
+#web-sites .project-tile .tags {
+  color: #ffe012;
+}
+#web-sites .project-tile .tags span {
+  color: #03b2e7;
 }
 
 .item-columns {
@@ -131,7 +165,10 @@ header #logo {
   row-gap: 64px;
 }
 
-.item a {
+.project-tile {
+  max-width: 30%;
+}
+.project-tile a {
   position: relative;
   display: inline-block;
   width: -webkit-fit-content;
@@ -140,11 +177,21 @@ header #logo {
   text-decoration: none;
   line-height: 0;
 }
-.item a p {
+.project-tile a img {
+  max-width: 100%;
+}
+.project-tile a p {
   display: inline-block;
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 4px 8px;
   line-height: initial;
+}
+.project-tile .tags {
+  margin-top: 16px;
+  font-weight: 600;
+  padding: 8px;
+  text-align: center;
+  text-shadow: 0 2px 2px #04222b;
 }/*# sourceMappingURL=index.css.map */
