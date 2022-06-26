@@ -8,7 +8,7 @@ $color-primary: #ffe012;
 $color-secondary: #03b2e7;
 $color-hero: #04222b;
 $color-bg: #46432f;
-$color-bg-2: #383626;
+$color-bg-2: #104156;
 
 /*---------------------
     MIXINS
@@ -17,7 +17,7 @@ $color-bg-2: #383626;
 @mixin section($theme: $color-bg, $height: 100vh) {
     background-color: $theme;
     min-height: $height;
-    padding: 64px 16px;
+    padding: 96px 5%;
     display: flex;
 }
 
@@ -26,15 +26,8 @@ $color-bg-2: #383626;
     color: $color2;
     padding: 4px 8px;
     display: inline-block;
-    font-size: 1.5em;
-    margin-bottom: 32px;
-}
-
-@mixin content-img($color: $color-primary) {
-    border: 3px solid $color;
-    box-shadow: 0 4px 5px $color-hero;
-    padding: 10px;
-    background-color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 96px;
 }
 
 @mixin description-color($text: $color-secondary, $background: $color-primary) {
@@ -138,8 +131,7 @@ header {
 ---------------------*/
 
 .container {
-    max-width: 1120px;
-    width: 100%;
+    max-width: 100%;
     margin: auto;
 }
 
@@ -148,10 +140,6 @@ header {
 
     h3 {
         @include content-title;
-    }
-
-    .project-tile img {
-        @include content-img;
     }
 
     .project-tile .item-name{
@@ -174,10 +162,6 @@ header {
         @include content-title($color1: $color-secondary, $color2: $color-primary);
     }
 
-    .project-tile img {
-        @include content-img($color: $color-secondary);
-    }
-
     .project-tile .item-name{
         @include description-color($text: $color-primary, $background: $color-secondary);
     }
@@ -192,14 +176,14 @@ header {
 }
 
 .item-columns{
-    display: flex;
+    display: grid;
     justify-content: space-between;
-    flex-wrap: wrap;
-    row-gap: 64px;
+    column-gap: 96px;
+    row-gap: 96px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .project-tile {
-    max-width: 30%;
 
     a {
         position: relative;
@@ -207,19 +191,20 @@ header {
         width: fit-content;
         text-decoration: none;
         line-height: 0;
+        
+        padding: 32px;
+        background-color: #fff;
 
         img {
             max-width: 100%;
         }
 
-        p {
-            display: inline-block;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            padding: 4px 8px;
-            line-height: initial;
-        }
+    }
+
+    .item-name {
+        padding: 8px 16px;
+        line-height: initial;
+        font-size: 1.5em;
     }
 
     .tags {
@@ -228,5 +213,63 @@ header {
         padding: 8px;
         text-align: center;
         text-shadow: 0 2px 2px $color-hero;
+    }
+}
+
+/*---------------------
+    MEDIA QUERIES
+---------------------*/
+
+@media (max-width: 1400px) {
+
+    .item-columns {
+        column-gap: 32px;
+        row-gap: 32px;
+
+        .project-tile {
+
+            .item-name {
+                font-size: 1.2em;
+            }
+            a {
+                padding: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .item-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+
+    header {
+        height: 50px;
+        grid-template-columns: 16px minmax(auto, 235px) 1fr;
+
+        #logo {
+            max-width: 255px;
+            margin-top: -6px;
+            margin-left: -9px;
+        }
+
+        .header-bar{
+            height: 50px;
+        }
+
+        .main-header #navbar a {
+            line-height: 50px;
+        }
+    }
+
+    #welcome-section h1 {
+        font-size: 3em;
+    }
+
+    .item-columns {
+        grid-template-columns: 1fr;
     }
 }

@@ -70,7 +70,7 @@ header #logo {
 #welcome-section {
   background-color: #04222b;
   min-height: 100vh;
-  padding: 64px 16px;
+  padding: 96px 5%;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -91,15 +91,14 @@ header #logo {
     CONTENT
 ---------------------*/
 .container {
-  max-width: 1120px;
-  width: 100%;
+  max-width: 100%;
   margin: auto;
 }
 
 #web-apps {
   background-color: #46432f;
   min-height: 70vh;
-  padding: 64px 16px;
+  padding: 96px 5%;
   display: flex;
 }
 #web-apps h3 {
@@ -107,14 +106,8 @@ header #logo {
   color: #03b2e7;
   padding: 4px 8px;
   display: inline-block;
-  font-size: 1.5em;
-  margin-bottom: 32px;
-}
-#web-apps .project-tile img {
-  border: 3px solid #ffe012;
-  box-shadow: 0 4px 5px #04222b;
-  padding: 10px;
-  background-color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 96px;
 }
 #web-apps .project-tile .item-name {
   background-color: #ffe012;
@@ -128,9 +121,9 @@ header #logo {
 }
 
 #web-sites {
-  background-color: #383626;
+  background-color: #104156;
   min-height: 70vh;
-  padding: 64px 16px;
+  padding: 96px 5%;
   display: flex;
 }
 #web-sites h3 {
@@ -138,14 +131,8 @@ header #logo {
   color: #ffe012;
   padding: 4px 8px;
   display: inline-block;
-  font-size: 1.5em;
-  margin-bottom: 32px;
-}
-#web-sites .project-tile img {
-  border: 3px solid #03b2e7;
-  box-shadow: 0 4px 5px #04222b;
-  padding: 10px;
-  background-color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 96px;
 }
 #web-sites .project-tile .item-name {
   background-color: #03b2e7;
@@ -159,15 +146,14 @@ header #logo {
 }
 
 .item-columns {
-  display: flex;
+  display: grid;
   justify-content: space-between;
-  flex-wrap: wrap;
-  row-gap: 64px;
+  -moz-column-gap: 96px;
+       column-gap: 96px;
+  row-gap: 96px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.project-tile {
-  max-width: 30%;
-}
 .project-tile a {
   position: relative;
   display: inline-block;
@@ -176,17 +162,16 @@ header #logo {
   width: fit-content;
   text-decoration: none;
   line-height: 0;
+  padding: 32px;
+  background-color: #fff;
 }
 .project-tile a img {
   max-width: 100%;
 }
-.project-tile a p {
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 4px 8px;
+.project-tile .item-name {
+  padding: 8px 16px;
   line-height: initial;
+  font-size: 1.5em;
 }
 .project-tile .tags {
   margin-top: 16px;
@@ -194,4 +179,51 @@ header #logo {
   padding: 8px;
   text-align: center;
   text-shadow: 0 2px 2px #04222b;
+}
+
+/*---------------------
+    MEDIA QUERIES
+---------------------*/
+@media (max-width: 1400px) {
+  .item-columns {
+    -moz-column-gap: 32px;
+         column-gap: 32px;
+    row-gap: 32px;
+  }
+  .item-columns .project-tile .item-name {
+    font-size: 1.2em;
+  }
+  .item-columns .project-tile a {
+    padding: 16px;
+  }
+}
+@media (max-width: 1200px) {
+  .item-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  header {
+    height: 50px;
+    grid-template-columns: 16px minmax(auto, 235px) 1fr;
+  }
+  header #logo {
+    max-width: 255px;
+    margin-top: -6px;
+    margin-left: -9px;
+  }
+  header .header-bar {
+    height: 50px;
+  }
+  header .main-header #navbar a {
+    line-height: 50px;
+  }
+
+  #welcome-section h1 {
+    font-size: 3em;
+  }
+
+  .item-columns {
+    grid-template-columns: 1fr;
+  }
 }/*# sourceMappingURL=index.css.map */
