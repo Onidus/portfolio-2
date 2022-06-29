@@ -101,6 +101,7 @@ header {
     #nav-btn {
       height: 100%;
       padding: 0 16px;
+      display: none;
 
       i {
         line-height: $header-height-sm;
@@ -113,6 +114,7 @@ header {
         right: 0;
         top: 0;
         padding-top: $header-height-sm;
+        padding-left: 0;
         background-color: $color-secondary;
         z-index: -1;
         text-align: center;
@@ -129,8 +131,6 @@ header {
       }
       &:hover,
       &:focus-within {
-        background-color: $color-secondary;
-
         #navbar-mobile {
           opacity: 1;
           transform: rotateX(0);
@@ -320,7 +320,7 @@ header {
       display: none;
     }
 
-    #nav-btn {
+    .main-header #nav-btn {
       display: block;
     }
   }

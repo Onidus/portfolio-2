@@ -66,6 +66,7 @@ header .main-header #navbar-mobile a:hover {
 header .main-header #nav-btn {
   height: 100%;
   padding: 0 16px;
+  display: none;
 }
 header .main-header #nav-btn i {
   line-height: 50px;
@@ -77,6 +78,7 @@ header .main-header #nav-btn #navbar-mobile {
   right: 0;
   top: 0;
   padding-top: 50px;
+  padding-left: 0;
   background-color: #03b2e7;
   z-index: -1;
   text-align: center;
@@ -88,9 +90,6 @@ header .main-header #nav-btn #navbar-mobile {
 }
 header .main-header #nav-btn #navbar-mobile a {
   color: #ffe012;
-}
-header .main-header #nav-btn:hover, header .main-header #nav-btn:focus-within {
-  background-color: #03b2e7;
 }
 header .main-header #nav-btn:hover #navbar-mobile, header .main-header #nav-btn:focus-within #navbar-mobile {
   opacity: 1;
@@ -268,7 +267,7 @@ header #logo {
   header #navbar {
     display: none;
   }
-  header #nav-btn {
+  header .main-header #nav-btn {
     display: block;
   }
 
