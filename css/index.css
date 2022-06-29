@@ -43,11 +43,14 @@ header .main-header {
   display: grid;
   justify-content: end;
   align-items: center;
+  /* FOR MOBILE */
 }
-header .main-header #navbar {
+header .main-header #navbar,
+header .main-header #navbar-mobile {
   list-style: none;
 }
-header .main-header #navbar a {
+header .main-header #navbar a,
+header .main-header #navbar-mobile a {
   text-decoration: none;
   font-size: 1.1em;
   color: #04222b;
@@ -56,8 +59,43 @@ header .main-header #navbar a {
   line-height: 60px;
   display: block;
 }
-header .main-header #navbar a:hover {
+header .main-header #navbar a:hover,
+header .main-header #navbar-mobile a:hover {
   background-color: #03b2e7;
+}
+header .main-header #nav-btn {
+  height: 100%;
+  padding: 0 16px;
+}
+header .main-header #nav-btn i {
+  line-height: 50px;
+}
+header .main-header #nav-btn #navbar-mobile {
+  position: fixed;
+  display: block;
+  width: 100vw;
+  right: 0;
+  top: 0;
+  padding-top: 50px;
+  background-color: #03b2e7;
+  z-index: -1;
+  text-align: center;
+  /*HIDES THE BAR*/
+  transform: rotateX(-90deg);
+  transform-origin: top center;
+  opacity: 0.3;
+  transition: 280ms all ease-out;
+}
+header .main-header #nav-btn #navbar-mobile a {
+  color: #ffe012;
+}
+header .main-header #nav-btn:hover, header .main-header #nav-btn:focus-within {
+  background-color: #03b2e7;
+}
+header .main-header #nav-btn:hover #navbar-mobile, header .main-header #nav-btn:focus-within #navbar-mobile {
+  opacity: 1;
+  transform: rotateX(0);
+  visibility: visible;
 }
 header #logo {
   max-width: 340px;
@@ -226,6 +264,12 @@ header #logo {
   }
   header .main-header #navbar a {
     line-height: 50px;
+  }
+  header #navbar {
+    display: none;
+  }
+  header #nav-btn {
+    display: block;
   }
 
   #welcome-section h1 {
